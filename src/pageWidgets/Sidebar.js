@@ -114,10 +114,6 @@ export default (props = {}) => {
                 <NavItem title="500 Server Error" link={Routes.ServerError.path} />
               </CollapsableNavItem>
 
-
-
-
-
             </Nav>
           </div>
         </SimpleBar>

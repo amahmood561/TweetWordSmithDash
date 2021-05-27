@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import { Routes } from "../../routes";
 
-import DashboardOverview from "../dashboard/DashboardOverview";
+import DashboardOverview from "../dashboard/DashboardOverviewInfo";
 import {Login} from "../login/login";
 // components
 import Sidebar from "../../pageWidgets/Sidebar";
