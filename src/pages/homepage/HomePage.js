@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import { Routes } from "../../routes";
 
-import DashboardOverview from "../dashboard/DashboardOverviewInfo";
+import {DashboardOverviewInfo} from "../dashboard/DashboardOverviewInfo";
 import {Login} from "../login/login";
 // components
 import Sidebar from "../../pageWidgets/Sidebar";
@@ -63,6 +63,6 @@ export default () => (
   <Switch>
       <RouteWithLoader exact path={Routes.Presentation.path} component={Login} />
       <RouteWithLoader exact path={Routes.Signin.path} component={Login} />
-      <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
+      <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverviewInfo} />
   </Switch>
 );
