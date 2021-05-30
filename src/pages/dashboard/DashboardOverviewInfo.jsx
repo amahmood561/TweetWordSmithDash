@@ -5,8 +5,10 @@ import { faCashRegister, faChartLine, faCloudUploadAlt, faPlus, faRocket, faTask
 import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
 
 import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../pageWidgets/Widgets";
-import { PageVisitsTable } from "../../pageWidgets/Tables";
+import {PageVisitsTable, TransactionsTable} from "../../pageWidgets/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+
 export class DashboardOverviewInfo extends React.Component {
 
   constructor(props) {
@@ -79,20 +81,8 @@ export class DashboardOverviewInfo extends React.Component {
                   data={trafficShares}/>
             </Col>
           </Row>
-          <Col xs={12} className="mb-4 d-none d-sm-block">
-            <SalesValueWidget
-                title="Sales Value"
-                value="10,567"
-                percentage={10.57}
-            />
-          </Col>
-          <Col xs={12} className="mb-4 d-sm-none">
-            <SalesValueWidgetPhone
-                title="Sales Value"
-                value="10,567"
-                percentage={10.57}
-            />
-          </Col>
+          <TransactionsTable />
+
           <Row>
             <Col xs={12} xl={12} className="mb-4">
               <Row>

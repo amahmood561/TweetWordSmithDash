@@ -3,7 +3,11 @@ export const Routes = {
     // pages
     Presentation: { path: "/" },
     DashboardOverview: { path: "/dashboard/overview" },
-    Transactions: { path: "/transactions" },
+    Transactions: { path: "/Transactions" },
+    Compose: { path: "/compose" },
+    Calendar: { path: "/calendar" },
+
+
     Settings: { path: "/settings" },
     Upgrade: { path: "/upgrade" },
     BootstrapTables: { path: "/tables/bootstrap-tables" },

@@ -9,6 +9,9 @@ import Sidebar from "../../pageWidgets/Sidebar";
 import Navbar from "../../pageWidgets/Navbar";
 import Footer from "../../pageWidgets/Footer";
 import Preloader from "../../pageWidgets/Preloader";
+import Transactions from "../transactions/Transactions";
+import Compose from "../compose/compose";
+import Calendar from "../calendar/calendar";
 
 const RouteWithLoader = ({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false);
@@ -64,5 +67,8 @@ export default () => (
       <RouteWithLoader exact path={Routes.Presentation.path} component={Login} />
       <RouteWithLoader exact path={Routes.Signin.path} component={Login} />
       <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverviewInfo} />
+      <RouteWithSidebar exact path={Routes.Compose.path} component={Compose} />
+      <RouteWithSidebar exact path={Routes.Calendar.path} component={Calendar} />
+
   </Switch>
 );

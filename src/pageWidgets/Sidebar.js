@@ -100,8 +100,8 @@ export default (props = {}) => {
               <NavItem title="Twitter Blacksmith" link={Routes.Presentation.path} image={ReactHero} />
 
               <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
-              <NavItem title="Compose" icon={faComments} link={Routes.Transactions.path} />
-              <NavItem title="Calendar" icon={faCalendar} link={Routes.Transactions.path} />
+              <NavItem title="Compose" icon={faComments} link={Routes.Compose.path} />
+              <NavItem title="Calendar" icon={faCalendar} link={Routes.Calendar.path} />
               <NavItem title="Settings" icon={faCog} link={Routes.Settings.path} />
 
               <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>
