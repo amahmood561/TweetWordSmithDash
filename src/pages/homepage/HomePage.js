@@ -10,8 +10,8 @@ import Navbar from "../../pageWidgets/Navbar";
 import Footer from "../../pageWidgets/Footer";
 import Preloader from "../../pageWidgets/Preloader";
 import Transactions from "../transactions/Transactions";
-import Compose from "../compose/compose";
-import Calendar from "../calendar/calendar";
+import {Compose} from "../compose/compose";
+import {Calendar} from "../calendar/calendar";
 
 const RouteWithLoader = ({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false);

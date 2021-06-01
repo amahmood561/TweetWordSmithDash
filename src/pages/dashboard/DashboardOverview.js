@@ -91,15 +91,12 @@ export default () => {
             <Col xs={12} xl={8} className="mb-4">
               <Row>
                 <Col xs={12} className="mb-4">
-                  <PageVisitsTable />
                 </Col>
 
                 <Col xs={12} lg={6} className="mb-4">
-                  <TeamMembersWidget />
                 </Col>
 
                 <Col xs={12} lg={6} className="mb-4">
-                  <ProgressTrackWidget />
                 </Col>
               </Row>
             </Col>

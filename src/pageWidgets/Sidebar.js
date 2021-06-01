@@ -97,7 +97,7 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Twitter Blacksmith" link={Routes.Presentation.path} image={ReactHero} />
+              <NavItem title="Twitter WordSmith" link={Routes.Presentation.path} image={ReactHero} />
 
               <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
               <NavItem title="Compose" icon={faComments} link={Routes.Compose.path} />
