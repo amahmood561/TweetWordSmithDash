@@ -9,9 +9,29 @@ import Sidebar from "../../pageWidgets/Sidebar";
 import Navbar from "../../pageWidgets/Navbar";
 import Footer from "../../pageWidgets/Footer";
 import Preloader from "../../pageWidgets/Preloader";
-import Transactions from "../transactions/Transactions";
 import {Compose} from "../compose/compose";
 import {Calendar} from "../calendar/calendar";
+
+const tkValidator = () => {
+    var existingToken =  localStorage.getItem("token")
+    //is token undefined from storage check url
+    if(existingToken ===  'undefined')  {
+        var req_url =  window.location.hash;
+        var HashKeyValueParsed_JSON = {};
+        require('url').parse(req_url).hash.substring(1).split('?').forEach(function (x) {
+            var arr = x.split('=');
+            arr[1] && (HashKeyValueParsed_JSON[arr[0]] = arr[1]);
+        });
+
+        //if token is undefined from url send to login page
+        if(HashKeyValueParsed_JSON.token ===  'undefined') {
+            window.location.href = window.location.origin + '/#/'
+        }
+        //set item in storage for use
+        localStorage.setItem("token",HashKeyValueParsed_JSON.token)
+    }
+
+}
 
 const RouteWithLoader = ({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false);
@@ -37,8 +57,9 @@ const RouteWithSidebar = ({ component: Component, ...rest }) => {
   const localStorageIsSettingsVisible = () => {
     return localStorage.getItem('settingsVisible') === 'false' ? false : true
   }
-
   const [showSettings, setShowSettings] = useState(localStorageIsSettingsVisible);
+
+  tkValidator();
 
   const toggleSettings = () => {
     setShowSettings(!showSettings);
