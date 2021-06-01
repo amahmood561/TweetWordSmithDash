@@ -60,12 +60,7 @@ export class Calendar extends React.Component {
               <h4>Calendar</h4>
               <p className="mb-0">Tweet Schedule below.</p>
             </div>
-            <div className="btn-toolbar mb-2 mb-md-0">
-              <ButtonGroup>
-                <Button variant="outline-primary" size="sm">Share</Button>
-                <Button variant="outline-primary" size="sm">Export</Button>
-              </ButtonGroup>
-            </div>
+            
           </div>
             <FullCalendar
                 defaultView="dayGridMonth"
