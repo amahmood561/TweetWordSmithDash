@@ -60,7 +60,7 @@ export class Calendar extends React.Component {
               <h4>Calendar</h4>
               <p className="mb-0">Tweet Schedule below.</p>
             </div>
-            
+
           </div>
             <FullCalendar
                 defaultView="dayGridMonth"

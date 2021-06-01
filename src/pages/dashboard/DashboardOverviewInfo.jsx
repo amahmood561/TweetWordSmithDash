@@ -17,6 +17,7 @@ export class DashboardOverviewInfo extends React.Component {
   }
 
   componentDidMount(){
+    console.log(localStorage.getItem('token'))
     console.log("mounting")
   }
 
