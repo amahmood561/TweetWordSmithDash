@@ -18,6 +18,7 @@ export class DashboardOverviewInfo extends React.Component {
 
   componentDidMount(){
     console.log(localStorage.getItem('token'))
+    // put load api call here
     console.log("mounting")
   }
 
