@@ -5,7 +5,7 @@ import { faCashRegister,faGlobe,faHourglass, faChartLine,faUser,faUserFriends ,f
 import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
 import {decodeToken} from "../twitter-client-side"
 import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../pageWidgets/Widgets";
-import {PageVisitsTable, TransactionsTable} from "../../pageWidgets/Tables";
+import {PageVisitsTable, TransactionsTable, TweetsTable} from "../../pageWidgets/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
 import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 import {getCLS} from "web-vitals";
@@ -20,7 +20,9 @@ export class DashboardOverviewInfo extends React.Component {
       hasError: false,
       followers: 0,
       friends: 0,
-      statuses: 0
+      statuses: 0,
+      tweets: 0
+
     };
   }
 
@@ -57,6 +59,10 @@ export class DashboardOverviewInfo extends React.Component {
     this.setState({followers: this.state.DashBoardData.BySN.followers_count})
     this.setState({friends: this.state.DashBoardData.BySN.friends_count})
     this.setState({statuses: this.state.DashBoardData.BySN.statuses_count})
+    let tweets = []
+    let entries = Object.entries(this.state.DashBoardData.UserTweets.data)
+    entries.forEach(element => tweets.push(element[1]))
+    this.setState({tweets: tweets})
 
   }
 
@@ -137,7 +143,7 @@ export class DashboardOverviewInfo extends React.Component {
                   data={trafficShares}/>
             </Col>*/}
           </Row>
-          <TransactionsTable />
+          <TweetsTable tweets={this.state.tweets}/>
 
         </>
     );
