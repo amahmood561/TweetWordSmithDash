@@ -3,11 +3,12 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCashRegister, faChartLine, faCloudUploadAlt, faPlus, faRocket, faTasks, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
-
+import {decodeToken} from "../twitter-client-side"
 import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../pageWidgets/Widgets";
 import {PageVisitsTable, TransactionsTable} from "../../pageWidgets/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
 import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+import {getCLS} from "web-vitals";
 
 export class DashboardOverviewInfo extends React.Component {
 
@@ -15,9 +16,41 @@ export class DashboardOverviewInfo extends React.Component {
     super(props);
     this.state = { hasError: false };
   }
+  getDashBoardInfo() {
+    let existingToken = localStorage.getItem('token')
+    var axios = require('axios');
+    var data = JSON.stringify({
+      "tokenEncoded": existingToken
+    });
 
+    var config = {
+      mode: 'no-cors',
+      method: 'post',
+      url: 'http://127.0.0.1:5000/DashBoardInfoApi1', // todo add staging and prod urls here on deploy
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+
+    axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+  }
   componentDidMount(){
-    console.log(localStorage.getItem('token'))
+    let existingToken = localStorage.getItem('token')
+    if(existingToken ===  'undefined' || existingToken ==  null )  {
+      let url =  window.location.href;
+      let split_url = url.split("token=")
+      localStorage.setItem("token",split_url[1])
+    }
+    let dashBoardInfo = this.getDashBoardInfo()
+    console.log(dashBoardInfo)
     // put load api call here
     console.log("mounting")
   }
