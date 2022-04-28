@@ -16,13 +16,13 @@ export class DashboardOverviewInfo extends React.Component {
     super(props);
     this.state = { hasError: false };
   }
-  getDashBoardInfo() {
+  async getDashBoardInfo() {
     let existingToken = localStorage.getItem('token')
     var axios = require('axios');
     var data = JSON.stringify({
       "tokenEncoded": existingToken
     });
-
+    let DashBoardData = {}
     var config = {
       mode: 'no-cors',
       method: 'post',
@@ -30,17 +30,13 @@ export class DashboardOverviewInfo extends React.Component {
       headers: {
         'Content-Type': 'application/json'
       },
-      data : data
+      data: data
     };
 
-    axios(config)
-        .then(function (response) {
-          console.log(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
+    let val = await axios(config)
+    console.log(val)
+    DashBoardData = val.data
+    console.log(DashBoardData)
   }
   componentDidMount(){
     let existingToken = localStorage.getItem('token')
