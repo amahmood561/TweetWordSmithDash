@@ -63,10 +63,10 @@ export const ChoosePhotoWidget = (props) => {
 };
 
 export const CounterWidget = (props) => {
-  const { icon, iconColor, category, title, period, percentage } = props;
+  const { icon, iconColor, category, title, period, percentage,enableGlobe } = props;
   const percentageIcon = percentage < 0 ? faAngleDown : faAngleUp;
   const percentageColor = percentage < 0 ? "text-danger" : "text-success";
-
+  //const enableGlobe = false
   return (
     <Card border="light" className="shadow-sm">
       <Card.Body>
@@ -85,13 +85,16 @@ export const CounterWidget = (props) => {
               <h5>{category}</h5>
               <h3 className="mb-1">{title}</h3>
             </div>
-            <small>{period}, <FontAwesomeIcon icon={faGlobeEurope} size="xs" /> WorldWide</small>
-            <div className="small mt-2">
-              <FontAwesomeIcon icon={percentageIcon} className={`${percentageColor} me-1`} />
-              <span className={`${percentageColor} fw-bold`}>
-                {percentage}%
-              </span> Since last month
-            </div>
+            {enableGlobe ?
+                <> <small>{period}, <FontAwesomeIcon icon={faGlobeEurope} size="xs" /> WorldWide</small>
+                <div className="small mt-2">
+                  <FontAwesomeIcon icon={percentageIcon} className={`${percentageColor} me-1`} />
+                  <span className={`${percentageColor} fw-bold`}>
+                    {percentage}%
+                  </span> Since last month
+                </div>
+                </>
+            : ""}
           </Col>
         </Row>
       </Card.Body>

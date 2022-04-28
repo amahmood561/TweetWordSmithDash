@@ -1,7 +1,7 @@
 
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCashRegister, faChartLine, faCloudUploadAlt, faPlus, faRocket, faTasks, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import { faCashRegister,faGlobe,faHourglass, faChartLine,faUser,faUserFriends ,faCloudUploadAlt, faPlus, faRocket, faTasks, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
 import {decodeToken} from "../twitter-client-side"
 import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../pageWidgets/Widgets";
@@ -14,41 +14,50 @@ export class DashboardOverviewInfo extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = {
+      props:props,
+      DashBoardData:undefined,
+      hasError: false,
+      followers: 0,
+      friends: 0,
+      statuses: 0
+    };
   }
+
   async getDashBoardInfo() {
+    let DashBoardData = {}
     let existingToken = localStorage.getItem('token')
-    var axios = require('axios');
-    var data = JSON.stringify({
+    let axios = require('axios');
+    let data = JSON.stringify({
       "tokenEncoded": existingToken
     });
-    let DashBoardData = {}
-    var config = {
+    let config = {
       mode: 'no-cors',
       method: 'post',
-      url: 'http://127.0.0.1:5000/DashBoardInfoApi1', // todo add staging and prod urls here on deploy
+      url: 'http://127.0.0.1:5000/DashBoardInfoApi1',
       headers: {
         'Content-Type': 'application/json'
       },
       data: data
     };
-
     let val = await axios(config)
-    console.log(val)
     DashBoardData = val.data
-    console.log(DashBoardData)
+    this.setState({ DashBoardData: DashBoardData });
+    this.props.setUsrData(DashBoardData);
   }
-  componentDidMount(){
+
+  async componentDidMount() {
     let existingToken = localStorage.getItem('token')
-    if(existingToken ===  'undefined' || existingToken ==  null )  {
-      let url =  window.location.href;
+    if (existingToken === 'undefined' || existingToken == null) {
+      let url = window.location.href;
       let split_url = url.split("token=")
-      localStorage.setItem("token",split_url[1])
+      localStorage.setItem("token", split_url[1])
     }
-    let dashBoardInfo = this.getDashBoardInfo()
-    console.log(dashBoardInfo)
-    // put load api call here
-    console.log("mounting")
+    await this.getDashBoardInfo()
+    this.setState({followers: this.state.DashBoardData.BySN.followers_count})
+    this.setState({friends: this.state.DashBoardData.BySN.friends_count})
+    this.setState({statuses: this.state.DashBoardData.BySN.statuses_count})
+
   }
 
   render() {
@@ -87,30 +96,46 @@ export class DashboardOverviewInfo extends React.Component {
             <Col xs={12} sm={6} xl={4} className="mb-4">
               <CounterWidget
                   category="Followers"
-                  title="345k"
-                  period="Feb 1 - Apr 1"
-                  percentage={18.2}
-                  icon={faChartLine}
+                  title={this.state.DashBoardData != undefined ? this.state.followers: '345k'}
+                  //period="Feb 1 - Apr 1"
+                  //percentage={18.2}
+                  icon={faUserFriends}
                   iconColor="shape-secondary"
+                  enableGlobe={false}
               />
             </Col>
 
             <Col xs={12} sm={6} xl={4} className="mb-4">
               <CounterWidget
-                  category="Status Count"
-                  title="$43,594"
-                  period="Feb 1 - Apr 1"
+                  category="Following"
+                  //title="$43,594"
+                  title={this.state.DashBoardData != undefined ? this.state.friends: '345k'}
+                  //period="Feb 1 - Apr 1"
                   percentage={28.4}
-                  icon={faCashRegister}
+                  icon={faGlobe}
                   iconColor="shape-tertiary"
+                  enableGlobe={false}
+
               />
             </Col>
-
             <Col xs={12} sm={6} xl={4} className="mb-4">
+              <CounterWidget
+                  category="Status Count"
+                  //title="$43,594"
+                  title={this.state.DashBoardData != undefined ? this.state.statuses: '345k'}
+                  //period="Feb 1 - Apr 1"
+                  //percentage={28.4}
+                  icon={faHourglass}
+                  iconColor="shape-tertiary"
+                  enableGlobe={false}
+
+              />
+            </Col>
+            {/*<Col xs={12} sm={6} xl={4} className="mb-4">
               <CircleChartWidget
                   title="Followers Count"
                   data={trafficShares}/>
-            </Col>
+            </Col>*/}
           </Row>
           <TransactionsTable />
 

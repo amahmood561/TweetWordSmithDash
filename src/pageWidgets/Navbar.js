@@ -12,13 +12,16 @@ import Profile3 from "../assets/img/team/profile-picture-3.jpg";
 export default (props) => {
   const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
   const areNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
+  const [usrData, setUsrData] = useState(props.usrData);
 
   const markNotificationsAsRead = () => {
     setTimeout(() => {
       setNotifications(notifications.map(n => ({ ...n, read: true })));
     }, 300);
   };
-
+  React.useEffect(() => {
+    setUsrData(props.usrData);
+  }, [props.usrData]);
 
   const Notification = (props) => {
     const { link, sender, image, time, message, read = false } = props;
@@ -86,9 +89,9 @@ export default (props) => {
             <Dropdown as={Nav.Item}>
               <Dropdown.Toggle as={Nav.Link} className="pt-1 px-0">
                 <div className="media d-flex align-items-center">
-                  <Image src={Profile3} className="user-avatar md-avatar rounded-circle" />
+                  <Image src={usrData != null ? usrData.usrData.BySN.profile_image_url: 'Bonnie Green'} className="user-avatar md-avatar rounded-circle" />
                   <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                    <span className="mb-0 font-small fw-bold">Bonnie Green</span>
+                    <span className="mb-0 font-small fw-bold">{usrData != null ? usrData.usrData.BySN.name: 'Bonnie Green'}</span>
                   </div>
                 </div>
               </Dropdown.Toggle>
