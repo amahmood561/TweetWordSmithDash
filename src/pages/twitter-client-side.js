@@ -4,17 +4,17 @@ function sendToLogin() {
     window.location.href = window.location.origin + '/#/';
 }
 
-function decodeToken() {
+export function decodeToken() {
     var existingToken =  localStorage.getItem("token");
-    if(existingToken ===  'undefined')  {
+    if(existingToken ===  'undefined' || existingToken ==  null)  {
         sendToLogin();
     }
-    var decoded = jwt_decode(existingToken);
-    console.log(decoded);
+    let decoded = jwt_decode(existingToken);
     return decoded;
 }
 
 function getProfile() {
+    //https://api.twitter.com/1.1/lists/show.json
     var currentToken = decodeToken();
     return "";
 }
