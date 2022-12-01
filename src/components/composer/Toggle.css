@@ -1,0 +1,25 @@
+.toggle {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.toggle__curtain {
+  border-radius: 16px;
+  height: 70%;
+  width: 100%;
+}
+
+.toggle__circle {
+  border-radius: 9999px;
+  box-shadow: rgb(0 0 0 / 50%) 0px 1px 3px;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  left: 0;
+  transition: transform 0.1s linear;
+  transform: translateX(100%);
+}

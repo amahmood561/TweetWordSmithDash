@@ -1,0 +1,62 @@
+.composermedialist {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/* Options */
+
+.composermedialist__options {
+  margin-top: 4px;
+}
+
+.composermedialist__option {
+  color: rgb(83, 100, 113);
+  fill: rgb(83, 100, 113);
+  display: inline-flex;
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration: none;
+  margin-right: 46px;
+  white-space: nowrap;
+}
+
+.composermedialist__option:hover {
+  text-decoration: underline;
+}
+
+.composermedialist__option svg {
+  height: 15px;
+  padding: 0 4px;
+}
+
+/* GIPHY LINK */
+.composermedialist__giphy {
+  color: rgb(83, 100, 113);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  margin-left: 11px;
+}
+
+.composermedialist__giphy:hover {
+  text-decoration: none;
+}
+
+.composermedialist__giphy img {
+  object-fit: cover;
+  height: 15px;
+  width: 15px;
+  margin-left: 4px;
+}
+
+.composermedialist__giphy a {
+  color: rgb(15, 20, 25);
+  font-weight: 700;
+  text-decoration: none;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+.composermedialist__giphy a:hover {
+  text-decoration: underline;
+}

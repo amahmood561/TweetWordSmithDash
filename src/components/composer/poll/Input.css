@@ -1,0 +1,81 @@
+.input {
+  margin-bottom: 11px;
+  position: relative;
+  width: 100%;
+}
+
+/* Input box */
+
+.input input {
+  border: 1px solid rgb(207, 217, 222);
+  border-radius: 4px;
+
+  color: #0f1419;
+  line-height: 15px;
+  font-size: 16px;
+  font-weight: 400;
+
+  height: 53px;
+
+  padding: 19px 8px 0px 8px;
+  width: 100%;
+}
+
+.input input:focus {
+  border-color: transparent;
+  outline-color: rgb(29, 155, 240);
+}
+
+/* Label */
+
+.input label {
+  color: #536471;
+
+  pointer-events: none;
+  padding: 0 8px;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  transition: -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    font-size 150ms cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    padding-top 150ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+
+.input input:not(:placeholder-shown) + label {
+  font-size: 13px;
+  line-height: 15px;
+  padding-top: 8px;
+}
+
+.input input:placeholder-shown + label {
+  font-size: 16px;
+  line-height: 23px;
+  padding-top: 15px;
+}
+
+.input input:focus + label {
+  color: rgb(29, 155, 240);
+  font-size: 13px;
+  line-height: 15px;
+  padding-top: 8px;
+}
+
+/* Counter */
+.input__counter {
+  color: #536471;
+  display: none;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.input input:focus ~ .input__counter {
+  display: block;
+}

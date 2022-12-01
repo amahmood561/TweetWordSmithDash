@@ -1,0 +1,49 @@
+.giflist {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.giflist__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.giflist__autoplay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 11px;
+}
+
+.giflist__autoplayTitle {
+  color: rgb(83, 100, 113);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.giflist__autoplayToggle {
+  height: 20px;
+  width: 40px;
+}
+
+.giflist__item {
+  background-color: lightgray;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 4px;
+  width: calc(50% - 2px);
+  aspect-ratio: 16 / 9;
+}
+
+.giflist__item:nth-child(odd) {
+  margin-right: 4px;
+}
+
+.giflist__image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}

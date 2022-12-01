@@ -56,9 +56,9 @@ export class DashboardOverviewInfo extends React.Component {
       localStorage.setItem("token", split_url[1])
     }
     await this.getDashBoardInfo()
-    this.setState({followers: this.state.DashBoardData.BySN.followers_count})
-    this.setState({friends: this.state.DashBoardData.BySN.friends_count})
-    this.setState({statuses: this.state.DashBoardData.BySN.statuses_count})
+    this.setState({followers: this.state.DashBoardData?.BySN?.followers_count})
+    this.setState({friends: this.state.DashBoardData?.BySN?.friends_count})
+    this.setState({statuses: this.state.DashBoardData?.BySN?.statuses_count})
     let tweets = []
     let entries = Object.entries(this.state.DashBoardData.UserTweets.data)
     entries.forEach(element => tweets.push(element[1]))

@@ -4,6 +4,8 @@ import { faCheck, faCog, faHome, faSearch } from '@fortawesome/free-solid-svg-ic
 import { Col, Row, Form,Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown } from '@themesberg/react-bootstrap';
 import Swal from 'sweetalert2'
 import Picker from 'emoji-picker-react';
+//import TweetBox from "../../components/TweetBox/TweetBox";
+import Composer from '../../components/composer/Composer';
 
 export class Compose extends React.Component {
 
@@ -19,15 +21,11 @@ export class Compose extends React.Component {
       chosenEmoji:null,
       setChosenEmoji:null
     };
-
   }
-
 
   componentDidMount(){
     console.log("mounting")
   }
-
-
 
   handleOnChange = (e) => {
     this.setState({[e.target.name]:e.target.value})
@@ -52,7 +50,7 @@ export class Compose extends React.Component {
               <Breadcrumb.Item>Compose</Breadcrumb.Item>
             </Breadcrumb>
             <h4>Compose</h4>
-            <p className="mb-0">Compose tweets here.</p>
+            {/* <p className="mb-0">Compose tweets here.</p> */}
           </div>
           <div className="btn-toolbar mb-2 mb-md-0">
             <ButtonGroup>
@@ -61,9 +59,8 @@ export class Compose extends React.Component {
             </ButtonGroup>
           </div>
         </div>
-        <label htmlFor="textarea">Compose tweet</label>
+        {/*<label htmlFor="textarea">Compose tweet</label>
         <textarea className="form-control" placeholder="Enter your tweet..." id="textarea" rows="4"></textarea>
-
         <div style={{float : 'right', paddingTop : '5px'}}>
           <Button variant="primary">Tweet</Button>
         </div>
@@ -72,8 +69,8 @@ export class Compose extends React.Component {
         ) : (
           <span>No emoji Chosen</span>
         )}
-        <Picker onEmojiClick={this.onEmojiClick} />
-
+        <Picker onEmojiClick={this.onEmojiClick} />*/}
+        <Composer />
       </>
     );
   };

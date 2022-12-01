@@ -1,0 +1,67 @@
+.dropdown {
+  height: 55px;
+  position: relative;
+  margin-right: 19px;
+  width: 100%;
+}
+
+/* Select */
+
+.dropdown select {
+  background: none;
+  border: none;
+  color: rgb(15, 20, 25);
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 15px;
+  padding: 0 8px;
+  padding-top: 11px;
+  padding-bottom: 8px;
+  position: absolute;
+  width: 100%;
+  outline: none;
+  appearance: none;
+}
+
+.dropdown select:focus + label {
+  color: rgb(29, 155, 240);
+}
+
+.dropdown__border {
+  border: 1px solid rgb(207, 217, 222);
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+}
+
+.dropdown__select:focus ~ .dropdown__border {
+  border: 2px solid rgb(29, 155, 240);
+}
+
+/* Label */
+
+.dropdown__label {
+  color: rgb(83, 100, 113);
+  font-size: 12px;
+  line-height: 15px;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  pointer-events: none;
+}
+
+.dropdown svg {
+  fill: rgb(83, 100, 113);
+  height: 1.5em;
+  margin-top: -0.75em;
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  pointer-events: none;
+}
+
+.dropdown__select:focus ~ svg {
+  fill: rgb(29, 155, 240);
+}

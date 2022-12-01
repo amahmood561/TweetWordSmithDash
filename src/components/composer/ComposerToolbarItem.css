@@ -1,0 +1,32 @@
+.composer__option {
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  width: 34px;
+  transition: all 0.2s;
+}
+
+.composer__option:hover {
+  background-color: rgba(29, 155, 240, 0.1);
+}
+
+.composer__option svg {
+  fill: rgb(29, 155, 240);
+  height: 19px;
+  width: 19px;
+}
+
+.composer__label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.composer__option-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

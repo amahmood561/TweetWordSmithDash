@@ -1,0 +1,88 @@
+.composer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.2s;
+  min-width: 390px;
+}
+
+.composer__inner {
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  padding: 15px 15px;
+  max-width: 598px;
+}
+
+/* Avatar */
+
+.composer__profileLink {
+  margin-right: 11px;
+}
+
+.composer__avatar {
+  border-radius: 9999px;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.composer__image {
+  border-radius: 9999px;
+  object-fit: cover;
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+}
+
+.composer__profileLink:hover .composer__avatar {
+  background-color: rgba(26, 26, 26, 0.15);
+}
+
+/* Editor */
+.composer__editor {
+  width: 100%;
+}
+
+.composer__textarea {
+  color: rgb(15, 20, 25);
+  font-family: inherit;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 23px;
+  min-height: 23px;
+  max-width: 598px;
+}
+
+.composer__textarea {
+  display: flex;
+  padding: 11px;
+  max-height: 690px;
+}
+
+.composer__input {
+  padding: 2px 0;
+  outline: none;
+  flex-wrap: wrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  width: 100%;
+  overflow: hidden;
+}
+
+[contenteditable='true']:empty:before {
+  color: #536471;
+  content: attr(data-placeholder);
+  pointer-events: none;
+  display: block; /* For Firefox */
+}
+
+/* Modals */
+.gifmodal__container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}

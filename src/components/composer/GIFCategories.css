@@ -1,0 +1,45 @@
+.gifcategories {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.gifcategories__item {
+  background-color: lightgray;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 4px;
+  width: calc(50% - 2px);
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.gifcategories__item:nth-child(odd) {
+  margin-right: 4px;
+}
+
+.gifcategories__image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.gifcategories__itemTitle {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 23px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 8px;
+  width: 100%;
+}

@@ -1,0 +1,173 @@
+.gifmodal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Dismiss */
+
+.gifmodal__dismiss {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Card */
+
+.gifmodal__card {
+  background-color: #fff;
+  border-radius: 16px;
+  height: 650px;
+  /* flex-shrink: 1; */
+  max-height: 90vh;
+  max-width: 500px;
+  width: 80vw;
+  min-height: 400px;
+  min-width: 250px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.gifmodal__cardInner {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Header */
+.gifmodal__header {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  padding: 0 11px;
+  top: 0;
+  width: 100%;
+}
+
+.gifmodal__button {
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  min-width: 34px;
+  outline: none;
+}
+
+.gifmodal__button:hover {
+  background-color: rgba(15, 20, 25, 0.1);
+}
+
+.gifmodal__button svg {
+  height: 19px;
+  width: 19px;
+}
+
+/* Search */
+
+.gifmodal__search {
+  border-radius: 9999px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  width: 100%;
+  margin: 8px 0 8px 11px;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.gifmodal__label {
+  background: none;
+  cursor: text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  height: 100%;
+  width: 100%;
+
+  font-family: sans-serif;
+  color: rgb(83, 100, 113);
+  position: absolute;
+  pointer-events: none;
+  transition: opacity 0.1s ease-out;
+}
+
+.gifmodal__labelInner {
+  display: flex;
+  align-items: center;
+}
+
+.gifmodal__search svg {
+  fill: rgb(83, 100, 113);
+  height: 15px;
+  width: 15px;
+}
+
+.gifmodal__label span {
+  margin-left: 4px;
+  margin-top: 2px;
+}
+
+.gifmodal__input {
+  background: none;
+  border: 1px solid rgb(207, 217, 222);
+  color: rgb(83, 100, 113);
+  font-size: 13px;
+  padding-left: 32px;
+  border-radius: 9999px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  outline: none;
+}
+
+.gifmodal_searchIcon {
+  margin-top: 4px;
+  padding-left: 15px;
+  opacity: 0;
+}
+
+.gifmodal__input:focus {
+  border: 2px solid rgb(29, 155, 240);
+}
+
+.gifmodal__input:focus + .gifmodal_searchIcon {
+  opacity: 1;
+}
+
+.gifmodal__input:focus ~ .gifmodal__label {
+  opacity: 0;
+}
+
+.gifmodal__input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+}
+
+/* List */
+
+.giflist {
+  height: 100%;
+  position: relative;
+}
