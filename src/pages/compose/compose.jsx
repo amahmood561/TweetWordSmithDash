@@ -70,7 +70,7 @@ export class Compose extends React.Component {
           <span>No emoji Chosen</span>
         )}
         <Picker onEmojiClick={this.onEmojiClick} />*/}
-        <Composer />
+        <Composer usrData={this.props.usrData} />
       </>
     );
   };

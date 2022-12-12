@@ -8,12 +8,16 @@ import ComposerToolbar from './ComposerToolbar';
 import Poll from './poll/Poll';
 import GIFModal from './GIFModal';
 
-function Composer() {
+function Composer(usrData) {
   const maxFiles = 4;
   const [files, setFiles] = useState([]);
   const [hasMedia, setHasMedia] = useState(false);
   const [gifModalOpen, setGifModalOpen] = useState(false);
   const [showPoll, setShowPoll] = useState(false);
+  const [profilePic, setProfilePic] = useState(false);
+  function getProfileImg() {
+    return usrData && usrData.usrData && usrData.usrData ? usrData.usrData.usrData.BySN.profile_image_url: 'Bonnie Green'
+  }
 
   const defaultToolbarEnabledState = {
     upload: true,
@@ -134,15 +138,16 @@ function Composer() {
   return (
     <div className="composer">
       <div className="composer__inner">
-        <a href="/" className="composer__profileLink">
+        { /*<a href="/" className="composer__profileLink">
           <div className="composer__avatar">
-            <img
+            <img src={getProfileImg()} className="user-avatar md-avatar rounded-circle" />
+            { <img
               className="composer__image"
               src="https://randomuser.me/api/portraits/med/women/6.jpg"
               alt=""
-            />
+            />}
           </div>
-        </a>
+        </a>*/}
         <div className="composer__editor">
           <div className="composer__textarea">
             <div
